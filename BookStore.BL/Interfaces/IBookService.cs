@@ -4,7 +4,7 @@ namespace BookStore.BL.Interfaces
 {
     public interface IBookService
     {
-        Task<IEnumerable<Book>> GetAll();
+        Task<IEnumerable<Book?>> GetAll();
 
         Task<Book> GetById(int id);
 

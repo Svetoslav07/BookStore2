@@ -9,6 +9,6 @@ namespace BookStore.Models.Requests
     public class AddBookRequest
     {
         public string Name { get; set; }
-        public int ReleaseDate { get; set; }
+        public int Id { get; set; }
     }
 }

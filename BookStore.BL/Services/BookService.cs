@@ -23,7 +23,7 @@ namespace BookStore.BL.Services
             await _bookRepository.Delete(id);
         }
 
-        public async Task<IEnumerable<Book>> GetAll()
+        public async Task<IEnumerable<Book?>> GetAll()
         {
             return await _bookRepository.GetAll();
         }

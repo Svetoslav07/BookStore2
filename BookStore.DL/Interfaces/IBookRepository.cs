@@ -4,7 +4,7 @@ namespace BookStore.DL.Interfaces
 {
     public interface IBookRepository
     {
-        Task<IEnumerable<Book>> GetAll();
+        Task<IEnumerable<Book?>> GetAll();
 
         Task<Book> GetById(int id);
 

@@ -9,7 +9,7 @@ namespace BookStore.DL.Repositories.MongoDB
     public class BookMongoRepository : IBookRepository
     {
 
-        private readonly IMongoCollection<Book> _books;
+        private readonly IMongoCollection<Book?> _books;
 
         public BookMongoRepository(IOptionsMonitor<MongoDbConfiguration> mongoConfig)
         {
@@ -18,7 +18,7 @@ namespace BookStore.DL.Repositories.MongoDB
             var database =
                 client.GetDatabase(mongoConfig.CurrentValue.DatabaseName);
             _books =
-                database.GetCollection<Book>(nameof(Book));
+                database.GetCollection<Book>($"{nameof(Book)} - SVB");
         }
 
         public async Task Add(Book book)

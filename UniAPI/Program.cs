@@ -39,6 +39,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHealthChecks()
+    .AddCheck<MongoHealthChecks>(MongoDb)
 builder.Services.AddFluentValidationAutoValidation()
     .AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining(typeof(Program));
@@ -53,6 +55,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapHealthChecks("/healthz");
 
 app.UseHttpsRedirection();
 
